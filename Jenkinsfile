@@ -23,6 +23,8 @@ pipeline {
 
     stage('Build & Test') {
       steps {
+        // Sanity check: prove mvn exists to avoid 127
+        sh 'mvn -v'
         sh 'mvn -B -q clean test'
       }
       post {
@@ -36,6 +38,7 @@ pipeline {
 
   post {
     always {
+      // Now safe: we have a top-level agent and thus a workspace
       cleanWs deleteDirs: true, notFailBuild: true
     }
   }
