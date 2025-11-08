@@ -7,5 +7,6 @@ public class SmokeTest {
     @Test
     void hello() {
         assertTrue(1 + 1 == 2, "Math still works!");
+    system.out.println("Just a Test");
     }
 }
