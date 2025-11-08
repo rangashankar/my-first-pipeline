@@ -35,7 +35,9 @@ pipeline {
   }
 
   post {
-    success { echo "Build #${env.BUILD_NUMBER} OK on ${env.BRANCH_NAME} SHA: ${readFile('.git_sha').trim()}" }
-    always  { cleanWs deleteDirs: true, notFailBuild: true }
+    always {
+      cleanWs deleteDirs: true, notFailBuild: true
+    }
   }
 }
+
